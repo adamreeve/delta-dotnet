@@ -102,7 +102,7 @@ namespace DeltaLake.Table
         /// <summary>
         /// Retrieves the current table version
         /// </summary>
-        /// <returns><see cref="long"/></returns>
+        /// <returns></returns>
         public long Version()
         {
             return _table.Version();
@@ -113,7 +113,7 @@ namespace DeltaLake.Table
         /// </summary>
         /// <param name="version">desired version</param>
         /// <param name="cancellationToken">A <see cref="System.Threading.CancellationToken">cancellation token</see>  </param>
-        /// <returns><see cref="Task"/></returns>
+        /// <returns></returns>
         public Task LoadVersionAsync(long version, CancellationToken cancellationToken)
         {
             return _table.LoadVersionAsync(version, cancellationToken);
@@ -122,7 +122,7 @@ namespace DeltaLake.Table
         /// <summary>
         /// Returns the table schema
         /// </summary>
-        /// <returns><see cref="Schema"/></returns>
+        /// <returns>The table schema</returns>
         public Apache.Arrow.Schema Schema()
         {
             return _table.Schema();
@@ -135,7 +135,7 @@ namespace DeltaLake.Table
         /// <param name="schema">The associated <see cref="Schema"/> for the <paramref name="records"/></param>
         /// <param name="options"><see cref="InsertOptions"/> </param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/> </param>
-        /// <returns><see cref="Task"/></returns>
+        /// <returns></returns>
         public async Task InsertAsync(
              IReadOnlyCollection<RecordBatch> records,
              Schema schema,
@@ -163,7 +163,7 @@ namespace DeltaLake.Table
         /// <param name="constraints">A collection of key and values representing columns and constraints</param>
         /// <param name="customMetadata">A collection of key and values representing columns and metadata</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/> </param>
-        /// <returns><see cref="Task"/> </returns>
+        /// <returns> </returns>
         public async Task AddConstraintsAsync(
             IReadOnlyDictionary<string, string> constraints,
             IReadOnlyDictionary<string, string>? customMetadata,
@@ -177,7 +177,7 @@ namespace DeltaLake.Table
         /// </summary>
         /// <param name="constraints">A collection of key and values representing columns and constraints</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/> </param>
-        /// <returns><see cref="Task"/> </returns>
+        /// <returns> </returns>
         public Task AddConstraintsAsync(
             IReadOnlyDictionary<string, string> constraints,
             CancellationToken cancellationToken)
@@ -201,7 +201,7 @@ namespace DeltaLake.Table
         /// </summary>
         /// <param name="timestamp">desired point in time</param>
         /// <param name="cancellationToken">A <see cref="System.Threading.CancellationToken">cancellation token</see>  </param>
-        /// <returns><see cref="Task"/></returns>
+        /// <returns></returns>
         public Task LoadDateTimeAsync(DateTimeOffset timestamp, CancellationToken cancellationToken)
         {
             return _table.LoadDateTimeAsync(timestamp, cancellationToken);
@@ -215,7 +215,6 @@ namespace DeltaLake.Table
         /// <param name="schema">The schema of the collection</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public async Task MergeAsync(string query, IReadOnlyCollection<RecordBatch> records, Schema schema, CancellationToken cancellationToken)
         {
             await _table.MergeAsync(query, records, schema, cancellationToken).ConfigureAwait(false);
@@ -224,7 +223,7 @@ namespace DeltaLake.Table
         /// <summary>
         /// Returns table metadata
         /// </summary>
-        /// <returns><see cref="DeltaLake.Table.TableMetadata"/></returns>
+        /// <returns></returns>
         public TableMetadata Metadata()
         {
             return _table.Metadata();
@@ -233,7 +232,7 @@ namespace DeltaLake.Table
         /// <summary>
         /// Returns minimum reader and writer versions
         /// </summary>
-        /// <returns><see cref="DeltaLake.Table.ProtocolInfo"/></returns>
+        /// <returns></returns>
         public ProtocolInfo ProtocolVersions()
         {
             return _table.ProtocolVersions();
@@ -244,7 +243,7 @@ namespace DeltaLake.Table
         /// </summary>
         /// <param name="options">Restore options</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
-        /// <returns><see cref="Task"/></returns>
+        /// <returns></returns>
         public Task RestoreAsync(RestoreOptions options, CancellationToken cancellationToken)
         {
             return _table.RestoreAsync(options, cancellationToken);
@@ -287,7 +286,7 @@ namespace DeltaLake.Table
         /// </summary>
         /// <param name="query">A select query</param>
         /// <param name="cancellationToken"></param>
-        /// <returns><see cref="IAsyncEnumerable{RecordBatch}"/>A collection of record batches representing the query results</returns>
+        /// <returns>A collection of record batches representing the query results</returns>
         public async IAsyncEnumerable<RecordBatch> QueryAsync(
             SelectQuery query,
             [EnumeratorCancellation] CancellationToken cancellationToken)
